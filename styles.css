@@ -1,6 +1,7 @@
 /* --- Base Styles & Typography --- */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Use our new Google Font 'Roboto' as the default */
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   line-height: 1.6;
   background-color: #f8f8f8;
   color: #333;
@@ -32,13 +33,18 @@ header nav ul {
 
 header nav li a {
   display: block;
-  padding: 15px 20px;
+  padding: 8px 15px;
   text-decoration: none;
   color: white;
+  font-weight: 500;
 }
 
 header nav li a:hover {
   background-color: #c9302c;
+}
+
+header nav li + li {
+  border-left: 1px solid #eee;
 }
 
 /* --- Responsive Images --- */
@@ -66,6 +72,11 @@ img {
   border-radius: 8px;
   overflow: hidden; /* Keeps image corners rounded */
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: box-shadow 0.2s ease-in-out; /* <-- ADD THIS LINE */
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* A bigger, softer shadow */
 }
 
 .card-image {
@@ -74,8 +85,13 @@ img {
   object-fit: cover;
 }
 
-.card h3, .card p, .card-link {
-  padding: 0 15px 15px 15px;
+.card-text {
+  padding: 15px 15px 0 15px; /* Padding on top/sides */
+}
+
+.card-button-wrapper {
+  padding: 0px; /* Padding all around */
+  text-align: right; /* <-- REQ 1: Aligns button to the right */
 }
 
 .card-link {
@@ -84,7 +100,12 @@ img {
   color: white;
   text-decoration: none;
   padding: 10px 15px;
-  border-radius: 4px;
+  border-radius: 8px 0px 8px 0px; /* Rounded corners */
+  transition: background-color 0.2s ease-in-out; /* <-- ADD THIS LINE */
+}
+
+.card-link:hover {
+  background-color: #610d0d; /* A darker red */
 }
 
 .card-link.inactive-link {
@@ -117,11 +138,69 @@ img {
 }
 
 /* --- Footer --- */
-footer {
-  text-align: center;
+/* --- New Footer Styles --- */
+.site-footer {
+  background-color: #333; /* Dark background */
+  color: #aaa; /* Light gray text */
   margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid #eee;
+  padding-top: 15px; /* Add padding at the top */
+}
+
+.footer-content {
+  background-color: #4e4e4e;
+  display: flex;
+  gap: 30px;
+  padding-bottom: 30px;
+  align-items: center;
+}
+
+.footer-logo,
+.footer-nav {
+  flex: 1; /* This makes both items (logo and nav) take up equal space */
+  text-align: center;
+}
+
+/* Style the footer logo (it's dark on dark) */
+.site-footer .logo-main {
+  font-size: 25px;
+  color: #ffffff; /* Make main logo white */
+}
+
+.site-footer .logo-tagline {
+  color: #aaa; /* Keep tagline light gray */
+}
+
+.footer-nav h4 {
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li {
+  margin-bottom: 5px;
+}
+
+.footer-nav a {
+  font-size: 0.9em;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #444; /* Darker border */
+  font-size: 0.9em;
   color: #777;
 }
 
@@ -129,8 +208,11 @@ footer {
 
 /* On small screens (mobile), stack everything */
 @media (max-width: 768px) {
-  header nav ul {
-    flex-direction: column; /* Stack the nav links */
+  /* --- NEW RULE TO FIX HEADER --- */
+  header {
+    flex-direction: column; /* Stack logo and nav */
+    align-items: flex-start; /* Align logo to the left */
+    gap: 15px; /* Adds space between logo and nav */
   }
 
   .category-grid {
@@ -140,4 +222,137 @@ footer {
   .image-gallery {
     grid-template-columns: 1fr; /* 1 column */
   }
+
+  /* --- Make Footer Responsive --- */
+  .footer-content {
+    flex-direction: column; /* Stack logo and nav */
+    gap: 30px;
+  }
+
+  .footer-logo,
+  .footer-nav {
+    text-align: center; /* Center-align text on mobile */
+  }
+
+  .footer-logo,
+.footer-nav {
+  text-align: center; /* Center-align text on mobile */
+  flex: none; /* <-- ADD THIS */
+}
+
+}
+
+/* --- Desktop-Only Adjustments --- */
+@media (min-width: 769px) {
+  .hero {
+    margin-top: 30px; /* Adds space above the hero on desktop */
+  }
+}
+
+
+/* --- Adjustments for New Header/Logo --- */
+header {
+  display: flex; /* Make logo and nav side-by-side */
+  justify-content: space-between; /* Puts logo on left, nav on right */
+  align-items: center; /* Vertically centers them */
+  padding: 10px 0; /* Add some padding */
+}
+
+/* --- New Logotype Styles --- */
+.logo a {
+  text-decoration: none;
+}
+
+.logo-main {
+  /* Use the elegant 'Playfair Display' font */
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #c9302c;
+  display: block; /* Puts it on its own line */
+  line-height: 1;
+}
+
+.logo-tagline {
+  font-size: 14px;
+  color: #555;
+  display: block; /* Puts it on its own line */
+}
+
+header nav ul {
+  margin: 0; /* Remove default margin */
+  background-color: transparent; /* Remove the black bar */
+}
+
+header nav li a {
+  color: #333; /* Make nav links dark */
+  font-weight: 500;
+}
+
+header nav li a:hover {
+  background-color: #f0f0f0; /* Light gray hover */
+  color: #c9302c; /* Red text on hover */
+}
+
+/* --- New Homepage Styles (Hero & CTA) --- */
+.hero {
+  position: relative; /* Needed to position text over image */
+  border-radius: 8px;
+  overflow: hidden;
+}
+.hero-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: white;
+  padding: 40px 20px 20px 20px;
+  box-sizing: border-box; /* Ensures padding doesn't break layout */
+}
+
+.hero-text h1 {
+  color: white;
+  margin: 0;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin: 5px 0 0 0;
+}
+
+.welcome-text {
+  margin-top: 30px;
+  text-align: center;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.cta {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #c9302c;
+  color: white;
+  text-decoration: none;
+  padding: 15px 30px;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.cta-button:hover {
+  background-color: #a92824; /* Darker red on hover */
 }

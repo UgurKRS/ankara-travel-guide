@@ -5,17 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi Web de Viajes: Ankara</title>
   <link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+  <div class="container">
+
   <include src="partials/header.html"></include>
 
-  <h1>Descubre Ankara</h1>
-  <p>Bienvenidos a mi proyecto de la UOC sobre la capital de Turquía.</p>
+  <section class="hero">
+    <img src="img/ankara-skyline.jpg" alt="Horizonte de Ankara al atardecer" class="hero-image">
+    <div class="hero-text">
+      <h1>Descubre Ankara</h1>
+      <p>La vibrante capital de Turquía, donde la historia antigua se encuentra con la modernidad.</p>
+    </div>
+  </section>
+
+  <section class="welcome-text">
+    <h2>Bienvenidos al Corazón de Anatolia</h2>
+    <p>Esta web es un proyecto dedicado a explorar la fascinante ciudad de Ankara. Desde sus monumentos históricos hasta su bulliciosa vida moderna, hay algo para todos. Navega por nuestras guías para planificar tu visita o simplemente para aprender más sobre esta increíble metrópolis.</p>
+  </section>
+
+  <section class="cta">
+    <h3>¿Por dónde empezar?</h3>
+    <p>Explora nuestra lista seleccionada de las atracciones más importantes que no te puedes perder.</p>
+    <a href="categoria.html" class="cta-button">Ver Lugares para Visitar</a>
+  </section>
 
   <include src="partials/footer.html"></include>
 
-  <script src="app.js" type="module"></script>
+</div>
+<script src="app.js" type="module"></script>
   </div>
 </body>
 </html>
