@@ -7,16 +7,45 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="container">
   <include src="partials/header.html"></include>
 
-  <h2>Lugares para Visitar</h2>
-  <p>Una lista de atracciones en Ankara.</p>
-  <ul>
-    <li><a href="det1.html">El Castillo de Ankara (Ankara Kalesi)</a></li>
-    <li><a href="det2.html">Anıtkabir (Mausoleo de Atatürk)</a></li>
-  </ul>
+<h2>Lugares para Visitar</h2>
+<p>Una lista de atracciones en Ankara.</p>
+
+<div class="category-grid">
+  <div class="card">
+    <img src="img\ankara-castle-drone.jpg" alt="Miniatura del Castillo de Ankara" class="card-image">
+    <h3>El Castillo de Ankara</h3>
+    <p>Las murallas históricas que ofrecen las mejores vistas.</p>
+    <a href="det1.html" class="card-link">Leer más</a>
+  </div>
+
+  <div class="card">
+    <img src="img\anitkabir-closeup.jpg" alt="Miniatura de Anıtkabir" class="card-image">
+    <h3>Anıtkabir</h3>
+    <p>El impresionante mausoleo de Mustafa Kemal Atatürk.</p>
+    <a href="det2.html" class="card-link">Leer más</a>
+  </div>
+
+  <div class="card">
+    <img src="img\anitkabir-museum1.jpg" alt="Miniatura del Museo de Civilizaciones" class="card-image">
+    <h3>Museo de Civilizaciones</h3>
+    <p>Artefactos de la prehistoria de Anatolia.</p>
+    <a href="#" class="card-link inactive-link">Próximamente</a>
+  </div>
+
+  <div class="card">
+    <img src="img\anitkabir-museum1.jpg" alt="Miniatura de un Hamam" class="card-image">
+    <h3>Hamamönü</h3>
+    <p>El distrito otomano restaurado.</p>
+    <a href="#" class="card-link inactive-link">Próximamente</a>
+  </div>
+</div>
 
   <include src="partials/footer.html"></include>
   <script src="app.js" type="module"></script>
+
+</div>
 </body>
 </html>
