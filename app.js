@@ -1,3 +1,7 @@
+// --- IMPORTS ---
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
+
 // --- MAIN STARTUP SCRIPT ---
 // This one function runs AFTER the HTML is loaded
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,14 +14,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- SCRIPT 2: WEATHER WIDGET ---
   if (document.getElementById("weather-widget")) {
-    // We call the weather function (defined below)
     fetchWeather();
   }
+
+  // --- SCRIPT 3: LIGHTBOX FOR DETAIL IMAGES ---
+  // Find all images with the class "clickable-image"
+  const images = document.querySelectorAll('.clickable-image');
   
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      // When clicked, show the lightbox
+      basicLightbox.create(`
+        <img src="${img.src}" style="max-width: 90vw; max-height: 90vh;">
+      `).show();
+    });
+  });
+
 }); // <-- End of the main startup script
 
 // --- WEATHER FUNCTION ---
-// We define this function, but it only runs when called above
 async function fetchWeather() {
   const weatherWidget = document.getElementById("weather-widget");
   const city = "Ankara";
@@ -40,12 +55,12 @@ async function fetchWeather() {
     const temperature = Math.round(data.main.temp);
     const description = data.weather[0].description;
     const iconCode = data.weather[0].icon;
-    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`; // Using 2x icon
 
     weatherWidget.innerHTML = `
       <div class="weather-content">
         <img src="${iconUrl}" alt="${description}">
-        <div>
+        <div class="weather-info">
           <p class="weather-temp">${temperature}°C</p>
           <div class="weather-details">
             <p class="weather-desc">${description}</p>
