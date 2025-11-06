@@ -1,27 +1,30 @@
-console.log("¡Hola desde app.js!");
+// --- MAIN STARTUP SCRIPT ---
+// This one function runs AFTER the HTML is loaded
+document.addEventListener('DOMContentLoaded', () => {
 
-// Automatic Copyright Year
-const yearSpan = document.getElementById("current-year");
-if (yearSpan) {
-  yearSpan.textContent = new Date().getFullYear();
-}
+  // --- SCRIPT 1: AUTOMATIC COPYRIGHT YEAR ---
+  const yearSpan = document.getElementById("current-year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 
-// --- Weather Widget ---
-
-document.addEventListener("DOMContentLoaded", () => {
+  // --- SCRIPT 2: WEATHER WIDGET ---
   if (document.getElementById("weather-widget")) {
+    // We call the weather function (defined below)
     fetchWeather();
   }
-});
+  
+}); // <-- End of the main startup script
 
+// --- WEATHER FUNCTION ---
+// We define this function, but it only runs when called above
 async function fetchWeather() {
   const weatherWidget = document.getElementById("weather-widget");
   const city = "Ankara";
-  
   const apiKey = process.env.OPENWEATHER_API_KEY;
 
   if (!apiKey) {
-    console.error("API Key not found. Make sure it's in your .env file.");
+    console.error("API Key not found.");
     weatherWidget.innerHTML = "Error: API Key no configurada.";
     return;
   }
@@ -33,13 +36,11 @@ async function fetchWeather() {
     if (!response.ok) {
       throw new Error(`Error: ${response.statusText}`);
     }
-    
     const data = await response.json();
-    
     const temperature = Math.round(data.main.temp);
     const description = data.weather[0].description;
     const iconCode = data.weather[0].icon;
-    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
+    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
 
     weatherWidget.innerHTML = `
       <div class="weather-content">
@@ -53,9 +54,8 @@ async function fetchWeather() {
         </div>
       </div>
     `;
-
   } catch (error) {
     console.error("Failed to fetch weather:", error);
-    weatherWidget.innerHTML = "No se pudo cargar el tiempo. (Inténtalo de nuevo más tarde)";
+    weatherWidget.innerHTML = "No se pudo cargar el tiempo.";
   }
 }
