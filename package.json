@@ -1,7 +1,9 @@
 {
-  "name": "ankara-travel-guide",
+  "name": "ankara-mola",
   "version": "1.0.0",
-  "description": "",
+  "description": "Una guía de viaje para Ankara.",
+  "author": "Ugur Karse <ugurkrs@uoc.edu>",
+  "source": "index.html",
   "scripts": {
     "parcel:dev": "parcel index.html",
     "parcel:build": "parcel build index.html",
@@ -11,15 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/UgurKRS/ankara-travel-guide.git"
+    "url": "git+https://github.com/UgurKRS/Ankara-Mola.git"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/UgurKRS/ankara-travel-guide/issues"
+    "url": "https://github.com/UgurKRS/Ankara-Mola/issues"
   },
-  "homepage": "https://github.com/UgurKRS/ankara-travel-guide#readme",
+  "homepage": "https://github.com/UgurKRS/Ankara-Mola#readme",
   "devDependencies": {
     "npm-run-all": "^4.1.5",
     "parcel": "^2.16.0",

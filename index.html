@@ -1,53 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Web de Viajes: Ankara</title>
+  <title>Ankara Mola</title>
   <link rel="stylesheet" href="styles.css">
-<link rel="preconnect" href="https://googleapis.com">
-<link rel="preconnect" href="https://gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
   <div class="container">
 
-  <include src="partials/header.html"></include>
+    <include src="partials/header.html"></include>
+    <main>
+      <section class="hero">
+        <img src="img/ankara_skyline.jpg" alt="Horizonte de Ankara al atardecer" class="hero-image">
+        <div class="hero-text">
+          <h1>Descubre Ankara</h1>
+          <p>La vibrante capital de Turquía, donde la historia antigua se encuentra con la modernidad.</p>
+        </div>
+      </section>
 
-<section class="hero">
-  <img src="img/ankara_skyline.jpg" alt="Horizonte de Ankara al atardecer" class="hero-image">
-  <div class="hero-text">
-    <h1>Descubre Ankara</h1>
-    <p>La vibrante capital de Turquía, donde la historia antigua se encuentra con la modernidad.</p>
+      <section class="welcome-text">
+        <h2>Bienvenidos al Corazón de Anatolia</h2>
+        <p>Esta web es un proyecto dedicado a explorar la fascinante ciudad de Ankara, una capital llena de contrastes.
+        </p>
+
+        <p>Aquí, las antiguas murallas del castillo conviven con la arquitectura moderna, y los bazares tradicionales se
+          encuentran a pocos pasos de los cafés de moda. Desde sus monumentos históricos, como el Anıtkabir, hasta su
+          bulliciosa vida moderna y su rica escena gastronómica, hay algo para todos. Navega por nuestras guías
+          detalladas para planificar tu visita o simplemente para aprender más sobre esta increíble metrópolis en el
+          corazón de Anatolia.</p>
+      </section>
+
+      <section class="home-bottom-grid">
+
+        <div class="cta">
+          <h3>¿Por dónde empezar?</h3>
+          <p>Explora nuestra lista seleccionada de las atracciones más importantes que no te puedes perder.</p>
+          <a href="categoria.html" class="cta-button">Ver Lugares para Visitar</a>
+        </div>
+
+        <div id="weather-widget">
+          <div id="weather-loading">Cargando el tiempo...</div>
+        </div>
+
+      </section>
+    </main>
+    <include src="partials/footer.html"></include>
+
   </div>
-</section>
-
-  <section class="welcome-text">
-    <h2>Bienvenidos al Corazón de Anatolia</h2>
-    <p>Esta web es un proyecto dedicado a explorar la fascinante ciudad de Ankara, una capital llena de contrastes.</p>
-    
-    <p>Aquí, las antiguas murallas del castillo conviven con la arquitectura moderna, y los bazares tradicionales se encuentran a pocos pasos de los cafés de moda. Desde sus monumentos históricos, como el Anıtkabir, hasta su bulliciosa vida moderna y su rica escena gastronómica, hay algo para todos. Navega por nuestras guías detalladas para planificar tu visita o simplemente para aprender más sobre esta increíble metrópolis en el corazón de Anatolia.</p>
-  </section>
-
-<section class="home-bottom-grid">
-
-  <div class="cta">
-    <h3>¿Por dónde empezar?</h3>
-    <p>Explora nuestra lista seleccionada de las atracciones más importantes que no te puedes perder.</p>
-    <a href="categoria.html" class="cta-button">Ver Lugares para Visitar</a>
-  </div>
-
-  <div id="weather-widget">
-  <div id="weather-loading">Cargando el tiempo...</div>
-  </div>
-
-
-</section>
-
-  <include src="partials/footer.html"></include>
-
-</div>
-<script src="app.js" type="module"></script>
+  <script src="app.js" type="module"></script>
 
 </body>
+
 </html>

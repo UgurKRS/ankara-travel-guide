@@ -3,7 +3,7 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
 // --- MAIN STARTUP SCRIPT ---
-// This one function runs AFTER the HTML is loaded
+// This one function runs after the HTML is loaded
 document.addEventListener('DOMContentLoaded', () => {
 
   // --- SCRIPT 1: AUTOMATIC COPYRIGHT YEAR ---
@@ -18,12 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- SCRIPT 3: LIGHTBOX FOR DETAIL IMAGES ---
-  // Find all images with the class "clickable-image"
+  // Finds all images with the class "clickable-image"
   const images = document.querySelectorAll('.clickable-image');
-  
+
   images.forEach(img => {
     img.addEventListener('click', () => {
-      // When clicked, show the lightbox
+      // When clicked, shows the lightbox
       basicLightbox.create(`
         <img src="${img.src}" style="max-width: 90vw; max-height: 90vh;">
       `).show();
